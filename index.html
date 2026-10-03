@@ -1,0 +1,1952 @@
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boobalan M | Senior Mechanical Design Engineer</title>
+  <meta name="description" content="Portfolio of Boobalan M — Senior Mechanical Design Engineer with 8+ years in Locomotive, Aerial Equipment, SPM, and Industrial Automation. NPD, DFM/DFA, GD&T, CAD, Vault & Teamcenter." />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Boobalan M | Mechanical Design Engineer" />
+  <meta property="og:description" content="8+ Years • 500+ CAD Assemblies • 100+ ECRs Resolved • Locomotive, Aerial Equipment & SPM Design" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Three.js for interactive CAD mechanical viewport -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            cad: {
+              950: '#06090e',
+              900: '#0a0f18',
+              850: '#0e1624',
+              800: '#141f32',
+              700: '#1e2e4a',
+              600: '#2b3f63',
+              line: '#1c2b44',
+              grid: '#162338',
+              accent: '#00a3ff',
+              accentHover: '#38bdf8',
+              amber: '#f59e0b',
+              orange: '#f97316',
+              steel: '#94a3b8',
+              darksteel: '#475569'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            display: ['Space Grotesk', 'sans-serif']
+          },
+          backgroundImage: {
+            'grid-pattern': "linear-gradient(to right, rgba(28, 43, 68, 0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(28, 43, 68, 0.35) 1px, transparent 1px)",
+            'blueprint-grid': "radial-gradient(circle at 50% 50%, rgba(0, 163, 255, 0.08) 0%, transparent 60%)"
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #06090e;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e2e4a;
+      border-radius: 4px;
+      border: 1px solid #2b3f63;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00a3ff;
+    }
+
+    /* Technical grid background */
+    .bg-tech-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(30, 46, 74, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 46, 74, 0.4) 1px, transparent 1px);
+    }
+    
+    .bg-tech-subgrid {
+      background-size: 8px 8px;
+      background-image: 
+        linear-gradient(to right, rgba(30, 46, 74, 0.15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 46, 74, 0.15) 1px, transparent 1px);
+    }
+
+    /* Engineering Corner Marks */
+    .cad-corners {
+      position: relative;
+    }
+    .cad-corners::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: -1px;
+      width: 8px; height: 8px;
+      border-top: 2px solid #00a3ff;
+      border-left: 2px solid #00a3ff;
+      pointer-events: none;
+    }
+    .cad-corners::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; right: -1px;
+      width: 8px; height: 8px;
+      border-bottom: 2px solid #00a3ff;
+      border-right: 2px solid #00a3ff;
+      pointer-events: none;
+    }
+
+    /* Dimension Line Effect */
+    .dim-line {
+      position: relative;
+    }
+    .dim-line::before, .dim-line::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 6px;
+      height: 6px;
+      border: 1px solid #00a3ff;
+      background: #0a0f18;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .dim-line::before { left: 0; }
+    .dim-line::after { right: 0; }
+
+    /* Mechanical glowing accents */
+    .cad-glow {
+      box-shadow: 0 0 35px -8px rgba(0, 163, 255, 0.18);
+    }
+    
+    .cad-border {
+      border: 1px solid #1c2b44;
+    }
+    
+    .cad-border-active {
+      border: 1px solid rgba(0, 163, 255, 0.5);
+    }
+
+    /* Print styles for recruiter clean export */
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff !important; color: #000000 !important; }
+      .cad-card { border: 1px solid #ccc !important; background: none !important; color: #000 !important; box-shadow: none !important; }
+      .text-slate-400, .text-slate-300 { color: #333 !important; }
+      .text-white { color: #000 !important; }
+      .text-cad-accent { color: #0284c7 !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-cad-950 text-slate-200 font-sans antialiased selection:bg-cad-accent selection:text-cad-950 relative overflow-x-hidden">
+
+  <!-- Technical Background Grid Overlay -->
+  <div class="fixed inset-0 pointer-events-none z-0 bg-tech-grid opacity-30"></div>
+  <div class="fixed inset-0 pointer-events-none z-0 bg-tech-subgrid opacity-15"></div>
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-blueprint-grid pointer-events-none z-0"></div>
+
+  <!-- Progress Bar -->
+  <div id="scrollProgress" class="fixed top-0 left-0 h-[2px] bg-cad-accent z-50 transition-all duration-75 w-0"></div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 bg-cad-950/85 backdrop-blur-md border-b border-cad-line transition-all duration-200 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand / CAD Title Block Mark -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 bg-cad-900 border border-cad-line group-hover:border-cad-accent rounded flex flex-col items-center justify-center text-center relative transition-colors shadow-inner">
+          <span class="font-mono text-xs font-bold text-cad-accent tracking-tighter">BM</span>
+          <span class="font-mono text-[8px] text-cad-steel leading-none">0.01</span>
+          <span class="absolute -top-1 -right-1 w-2 h-2 bg-cad-accent rounded-full animate-ping opacity-75"></span>
+          <span class="absolute -top-1 -right-1 w-2 h-2 bg-cad-accent rounded-full"></span>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-cad-accent transition-colors">BOOBALAN M</span>
+            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cad-800 text-cad-accent border border-cad-700">ENG.SPEC</span>
+          </div>
+          <span class="text-[11px] font-mono text-cad-steel tracking-wider uppercase">Senior Mechanical Design Engineer</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 font-mono text-xs text-slate-300">
+        <a href="#about" class="px-3 py-1.5 rounded hover:text-cad-accent hover:bg-cad-900/80 transition-colors">01.ABOUT</a>
+        <a href="#expertise" class="px-3 py-1.5 rounded hover:text-cad-accent hover:bg-cad-900/80 transition-colors">02.EXPERTISE</a>
+        <a href="#experience" class="px-3 py-1.5 rounded hover:text-cad-accent hover:bg-cad-900/80 transition-colors">03.EXPERIENCE</a>
+        <a href="#projects" class="px-3 py-1.5 rounded hover:text-cad-accent hover:bg-cad-900/80 transition-colors">04.PROJECTS</a>
+        <a href="#skills" class="px-3 py-1.5 rounded hover:text-cad-accent hover:bg-cad-900/80 transition-colors">05.SKILLS</a>
+        <a href="#achievements" class="px-3 py-1.5 rounded hover:text-cad-accent hover:bg-cad-900/80 transition-colors">06.IMPACT</a>
+        <a href="#education" class="px-3 py-1.5 rounded hover:text-cad-accent hover:bg-cad-900/80 transition-colors">07.EDUCATION</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="window.print()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-cad-900 border border-cad-line text-xs font-mono text-slate-300 hover:text-white hover:border-slate-500 transition-colors">
+          <svg class="w-3.5 h-3.5 text-cad-steel" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          SPEC SHEET
+        </button>
+        <a href="#contact" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-cad-accent hover:bg-cad-accentHover text-cad-950 text-xs font-mono font-semibold transition-all shadow-[0_0_20px_rgba(0,163,255,0.3)]">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          CONTACT
+        </a>
+        <!-- Mobile Menu Trigger -->
+        <button id="mobileMenuBtn" aria-label="Toggle menu" class="lg:hidden p-2 rounded bg-cad-900 border border-cad-line text-slate-400 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden lg:hidden border-b border-cad-line bg-cad-900/95 px-4 py-3 space-y-2 font-mono text-xs">
+      <a href="#about" class="block py-1.5 text-slate-300 hover:text-cad-accent">01. ABOUT</a>
+      <a href="#expertise" class="block py-1.5 text-slate-300 hover:text-cad-accent">02. EXPERTISE</a>
+      <a href="#experience" class="block py-1.5 text-slate-300 hover:text-cad-accent">03. EXPERIENCE</a>
+      <a href="#projects" class="block py-1.5 text-slate-300 hover:text-cad-accent">04. PROJECTS</a>
+      <a href="#skills" class="block py-1.5 text-slate-300 hover:text-cad-accent">05. SKILLS</a>
+      <a href="#achievements" class="block py-1.5 text-slate-300 hover:text-cad-accent">06. IMPACT</a>
+      <a href="#education" class="block py-1.5 text-slate-300 hover:text-cad-accent">07. EDUCATION</a>
+      <a href="#contact" class="block py-1.5 text-cad-accent font-semibold">08. CONTACT &amp; RESUME</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="home" class="relative z-10">
+
+    <!-- HERO SECTION -->
+    <section class="min-h-[calc(100vh-4rem)] flex items-center pt-8 pb-16 relative border-b border-cad-line">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        
+        <!-- Top Meta Bar / Drawing Index Info -->
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-6 mb-8 border-b border-cad-line/60 font-mono text-[11px] text-cad-steel">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-400 border border-emerald-800/80">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              AVAILABLE FOR NEW ROLES
+            </span>
+            <span class="hidden sm:inline text-cad-line">|</span>
+            <span class="hidden sm:inline">DISCIPLINE: MECHANICAL / PRODUCT DESIGN</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span>DOC-REF: <strong class="text-slate-300 font-semibold">BM-2025-CAD</strong></span>
+            <span>SCALE: <strong class="text-slate-300">1:1</strong></span>
+            <span class="hidden md:inline">SYSTEM: <strong class="text-cad-accent">ASME Y14.5 / ANSI 92.2</strong></span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left Column: Bio & Core Pitch -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <div class="space-y-2">
+              <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-cad-900 border border-cad-line text-cad-accent font-mono text-xs">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path d="M12 6v6l4 2" stroke-width="2"/></svg>
+                8+ YEARS INDUSTRIAL ENGINEERING EXPERIENCE
+              </div>
+              <h1 class="font-display font-extrabold text-4xl sm:text-5xl xl:text-6xl text-white tracking-tight leading-[1.08]">
+                BOOBALAN M
+                <span class="block text-2xl sm:text-3xl xl:text-4xl text-cad-accent font-semibold mt-1 font-sans">
+                  Mechanical Design Engineer
+                </span>
+              </h1>
+            </div>
+
+            <!-- Headline -->
+            <div class="border-l-2 border-cad-accent pl-4 py-1">
+              <p class="font-display text-xl sm:text-2xl font-semibold text-slate-100">
+                Engineering Precision. Designing for Performance.
+              </p>
+              <p class="mt-2 text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
+                Mechanical Design Engineer with 8+ years of expertise across Locomotive Cab structures, Aerial Work Platforms, Special-Purpose Machinery (SPM), and Industrial Automation. From concept sizing &amp; calculations to high-integrity CAD release and sustaining engineering.
+              </p>
+            </div>
+
+            <!-- Capabilities Tags -->
+            <div class="space-y-2 pt-1">
+              <div class="font-mono text-[10px] text-cad-steel uppercase tracking-wider flex items-center gap-2">
+                <span>Core Engineering Competencies</span>
+                <span class="flex-grow h-[1px] bg-cad-line"></span>
+              </div>
+              <div class="flex flex-wrap gap-1.5 text-xs font-mono">
+                <span class="px-2.5 py-1 rounded bg-cad-900 border border-cad-line text-slate-200 hover:border-cad-accent transition-colors">Mechanical &amp; Structural Design</span>
+                <span class="px-2.5 py-1 rounded bg-cad-900 border border-cad-line text-slate-200 hover:border-cad-accent transition-colors">CAD &amp; Large Assemblies</span>
+                <span class="px-2.5 py-1 rounded bg-cad-900 border border-cad-line text-slate-200 hover:border-cad-accent transition-colors">Sheet Metal &amp; Welding</span>
+                <span class="px-2.5 py-1 rounded bg-cad-900 border border-cad-line text-slate-200 hover:border-cad-accent transition-colors">DFM / DFA</span>
+                <span class="px-2.5 py-1 rounded bg-cad-900 border border-cad-line text-cad-accent font-semibold border-cad-700">GD&amp;T (ASME Y14.5)</span>
+                <span class="px-2.5 py-1 rounded bg-cad-900 border border-cad-line text-slate-200 hover:border-cad-accent transition-colors">Design Calculations</span>
+                <span class="px-2.5 py-1 rounded bg-cad-900 border border-cad-line text-slate-200 hover:border-cad-accent transition-colors">Product Development (NPD)</span>
+                <span class="px-2.5 py-1 rounded bg-cad-900 border border-cad-line text-slate-200 hover:border-cad-accent transition-colors">Sustaining Engineering</span>
+              </div>
+            </div>
+
+            <!-- CTAs -->
+            <div class="flex flex-wrap items-center gap-4 pt-4">
+              <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 rounded bg-cad-accent hover:bg-cad-accentHover text-cad-950 font-semibold text-sm transition-all shadow-[0_0_25px_rgba(0,163,255,0.35)] group">
+                <span>View My Work</span>
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+
+              <a href="mailto:erboobalanm@gmail.com?subject=Resume%20Request%20-%20Mechanical%20Design%20Engineer%20Role" class="inline-flex items-center gap-2 px-5 py-3 rounded bg-cad-900 hover:bg-cad-850 text-slate-200 border border-cad-line hover:border-slate-400 font-mono text-sm transition-all">
+                <svg class="w-4 h-4 text-cad-steel" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span>Download Resume</span>
+              </a>
+
+              <a href="https://www.linkedin.com/in/boobalan-murugan-10a34a250" target="_blank" rel="noopener" class="p-3 rounded bg-cad-900 hover:bg-cad-850 text-slate-400 hover:text-cad-accent border border-cad-line transition-colors" title="LinkedIn Profile">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25a1.6 1.6 0 0 0-1.6 1.6 1.6 1.6 0 0 0 1.6 1.6 1.6 1.6 0 0 0 1.6-1.6 1.6 1.6 0 0 0-1.6-1.6Z"/></svg>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Interactive 3D CAD Assembly Visualizer -->
+          <div class="lg:col-span-5 relative">
+            <div class="cad-corners bg-cad-900 border border-cad-line rounded-lg p-3 cad-glow">
+              
+              <!-- CAD Window Header -->
+              <div class="flex items-center justify-between pb-2 mb-2 border-b border-cad-line font-mono text-[10px] text-cad-steel">
+                <div class="flex items-center gap-2">
+                  <div class="w-2.5 h-2.5 rounded-sm bg-cad-accent/80"></div>
+                  <span class="text-slate-300 font-semibold">VIEWPORT // 3D ISO WIREFRAME</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span id="cadFps" class="text-emerald-400">60 FPS</span>
+                  <span class="px-1.5 py-0.2 rounded bg-cad-800 text-[9px]">INTERACTIVE</span>
+                </div>
+              </div>
+
+              <!-- Canvas Container -->
+              <div id="canvas-container" class="w-full h-80 sm:h-96 bg-cad-950 rounded relative overflow-hidden flex items-center justify-center cursor-grab active:cursor-grabbing border border-cad-line/50">
+                <!-- Fallback Loading Text -->
+                <div id="canvas-loading" class="text-center font-mono text-xs text-cad-steel">
+                  <div class="w-6 h-6 border-2 border-cad-accent border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+                  LOADING KINEMATIC MODEL...
+                </div>
+              </div>
+
+              <!-- Viewport Technical Telemetry HUD -->
+              <div class="grid grid-cols-3 gap-2 mt-3 pt-2 border-t border-cad-line font-mono text-[10px]">
+                <div class="bg-cad-950 p-2 rounded border border-cad-line/60">
+                  <span class="text-cad-steel block">ASSEMBLY</span>
+                  <span class="text-slate-200 font-semibold truncate block">AERIAL_BOOM_MOD</span>
+                </div>
+                <div class="bg-cad-950 p-2 rounded border border-cad-line/60">
+                  <span class="text-cad-steel block">SOLVER</span>
+                  <span class="text-cad-accent font-semibold block">FEA_STATIC_OK</span>
+                </div>
+                <div class="bg-cad-950 p-2 rounded border border-cad-line/60">
+                  <span class="text-cad-steel block">TOLERANCE</span>
+                  <span class="text-amber-400 font-semibold block">±0.025 mm</span>
+                </div>
+              </div>
+
+              <!-- Technical coordinate stamp -->
+              <div class="flex items-center justify-between mt-2 px-1 text-[9px] font-mono text-cad-steel">
+                <span>X: 1420.50 | Y: 890.12 | Z: 3400.00</span>
+                <span>DRAG TO ROTATE 3D ASSEMBLY</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ENGINEERING IMPACT / STATISTICS DASHBOARD -->
+    <section id="achievements" class="py-16 bg-cad-900/60 border-b border-cad-line relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-cad-line gap-4">
+          <div>
+            <div class="flex items-center gap-2 font-mono text-xs text-cad-accent">
+              <span class="w-2 h-2 bg-cad-accent"></span>
+              <span>SECTION 06 // QUANTIFIED PERFORMANCE</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-display font-bold text-white mt-1">Engineering Impact &amp; Metrics</h2>
+          </div>
+          <p class="font-mono text-xs text-cad-steel max-w-md">
+            Verified performance indicators across New Product Development (NPD), sustaining programs, and factory floor execution.
+          </p>
+        </div>
+
+        <!-- Dashboard Grid of 6 High-Impact Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          
+          <!-- Metric 1 -->
+          <div class="cad-corners bg-cad-950 border border-cad-line p-5 rounded-lg flex flex-col justify-between hover:border-cad-accent transition-all group">
+            <div class="flex items-center justify-between font-mono text-[10px] text-cad-steel mb-3">
+              <span>EXP.INDEX</span>
+              <span class="text-cad-accent font-bold">01</span>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-mono font-extrabold text-white tracking-tight group-hover:text-cad-accent transition-colors stat-counter" data-target="8" data-suffix="+">0</div>
+              <div class="font-semibold text-xs text-slate-200 mt-1">Years Experience</div>
+            </div>
+            <div class="mt-4 pt-2 border-t border-cad-line/50 font-mono text-[10px] text-cad-steel">
+              Locomotive, Aerial &amp; SPM
+            </div>
+          </div>
+
+          <!-- Metric 2 -->
+          <div class="cad-corners bg-cad-950 border border-cad-line p-5 rounded-lg flex flex-col justify-between hover:border-cad-accent transition-all group">
+            <div class="flex items-center justify-between font-mono text-[10px] text-cad-steel mb-3">
+              <span>CAD.DATA</span>
+              <span class="text-cad-accent font-bold">02</span>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-mono font-extrabold text-white tracking-tight group-hover:text-cad-accent transition-colors stat-counter" data-target="500" data-suffix="+">0</div>
+              <div class="font-semibold text-xs text-slate-200 mt-1">CAD Assemblies</div>
+            </div>
+            <div class="mt-4 pt-2 border-t border-cad-line/50 font-mono text-[10px] text-cad-steel">
+              Sub-systems &amp; Routing
+            </div>
+          </div>
+
+          <!-- Metric 3 -->
+          <div class="cad-corners bg-cad-950 border border-cad-line p-5 rounded-lg flex flex-col justify-between hover:border-cad-accent transition-all group">
+            <div class="flex items-center justify-between font-mono text-[10px] text-cad-steel mb-3">
+              <span>ECR.RESOLV</span>
+              <span class="text-cad-accent font-bold">03</span>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-mono font-extrabold text-white tracking-tight group-hover:text-cad-accent transition-colors stat-counter" data-target="100" data-suffix="+">0</div>
+              <div class="font-semibold text-xs text-slate-200 mt-1">ECRs Resolved</div>
+            </div>
+            <div class="mt-4 pt-2 border-t border-cad-line/50 font-mono text-[10px] text-cad-steel">
+              Engineering Change Control
+            </div>
+          </div>
+
+          <!-- Metric 4 -->
+          <div class="cad-corners bg-cad-950 border border-cad-line p-5 rounded-lg flex flex-col justify-between hover:border-cad-accent transition-all group">
+            <div class="flex items-center justify-between font-mono text-[10px] text-cad-steel mb-3">
+              <span>KPI.RATING</span>
+              <span class="text-emerald-400 font-bold">04</span>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-mono font-extrabold text-emerald-400 tracking-tight stat-counter" data-target="99.8" data-suffix="%" data-decimal="1">0</div>
+              <div class="font-semibold text-xs text-slate-200 mt-1">Performance Score</div>
+            </div>
+            <div class="mt-4 pt-2 border-t border-cad-line/50 font-mono text-[10px] text-cad-steel">
+              Quality Audit Benchmark
+            </div>
+          </div>
+
+          <!-- Metric 5 -->
+          <div class="cad-corners bg-cad-950 border border-cad-line p-5 rounded-lg flex flex-col justify-between hover:border-cad-accent transition-all group">
+            <div class="flex items-center justify-between font-mono text-[10px] text-cad-steel mb-3">
+              <span>SCHEDULE</span>
+              <span class="text-cad-accent font-bold">05</span>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-mono font-extrabold text-white tracking-tight group-hover:text-cad-accent transition-colors stat-counter" data-target="99.5" data-suffix="%" data-decimal="1">0</div>
+              <div class="font-semibold text-xs text-slate-200 mt-1">On-Time Delivery</div>
+            </div>
+            <div class="mt-4 pt-2 border-t border-cad-line/50 font-mono text-[10px] text-cad-steel">
+              Zero internal/external errors
+            </div>
+          </div>
+
+          <!-- Metric 6 -->
+          <div class="cad-corners bg-cad-950 border border-cad-line p-5 rounded-lg flex flex-col justify-between hover:border-amber-400 transition-all group">
+            <div class="flex items-center justify-between font-mono text-[10px] text-amber-400 mb-3">
+              <span>DMAIC.EFF</span>
+              <span class="text-amber-400 font-bold">06</span>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-mono font-extrabold text-amber-400 tracking-tight stat-counter" data-target="90" data-suffix="%">0</div>
+              <div class="font-semibold text-xs text-slate-200 mt-1">Rework Reduction</div>
+            </div>
+            <div class="mt-4 pt-2 border-t border-cad-line/50 font-mono text-[10px] text-cad-steel">
+              Cycle Time Optimization
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 border-b border-cad-line relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Section Identifier (Col 1-4) -->
+          <div class="lg:col-span-4 space-y-4">
+            <div class="flex items-center gap-2 font-mono text-xs text-cad-accent">
+              <span class="w-2 h-2 bg-cad-accent"></span>
+              <span>SECTION 01 // PROFILE OVERVIEW</span>
+            </div>
+            <h2 class="text-3xl font-display font-bold text-white leading-tight">
+              Design for Manufacturing.<br />
+              Engineered for Lifetime Reliability.
+            </h2>
+            <div class="p-4 bg-cad-900 border border-cad-line rounded font-mono text-xs text-slate-300 space-y-2">
+              <div class="text-cad-accent font-semibold flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                STRICT ENGINEERING INTEGRITY
+              </div>
+              <p class="text-cad-steel text-[11px] leading-relaxed">
+                All design data is authored in adherence to international drafting standards (ASME Y14.5, AWS D1.1, ANSI 92.2), ensuring exact tolerance stack-up and frictionless shop-floor assembly.
+              </p>
+            </div>
+          </div>
+
+          <!-- Narrative and Technical Focus (Col 5-12) -->
+          <div class="lg:col-span-8 space-y-6">
+            <div class="bg-cad-900/90 border border-cad-line rounded-lg p-6 sm:p-8 relative">
+              <div class="prose prose-invert max-w-none text-slate-300 text-sm sm:text-base leading-relaxed space-y-4">
+                <p>
+                  I am a <strong class="text-white font-semibold">Senior Mechanical Design Engineer with 8+ years of dedicated industry experience</strong> delivering robust mechanical systems, heavy vehicle structures, aerial equipment, and custom automation machinery. My engineering approach bridges conceptual physics and structural calculations with real-world shop floor manufacturability.
+                </p>
+                <p>
+                  My core competency spans <strong class="text-white font-semibold">structural and sheet-metal design</strong>, large CAD assemblies, product development (NPD), sustaining engineering, and comprehensive manufacturing floor support. I implement rigorous <strong class="text-white font-semibold">DFM (Design for Manufacturing) and DFA (Design for Assembly)</strong> methodologies, GD&amp;T per ASME Y14.5, Model-Based Definition (MBD), disciplined ECN/ECR workflows, and fundamental engineering calculations (bolt selection, force checks, stability analysis, and hydraulic schematics).
+                </p>
+                <p>
+                  Having worked across multinational product teams (Terex India, Quest Global, Innoway Systems), I manage product lifecycles through modern PDM/PLM systems (Vault, Teamcenter), ensuring zero-defect documentation, seamless vendor handoffs, and sustainable field performance.
+                </p>
+              </div>
+
+              <!-- Technical Summary Matrix Grid -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8 pt-6 border-t border-cad-line text-xs font-mono">
+                <div class="bg-cad-950 p-3 rounded border border-cad-line">
+                  <span class="text-cad-steel block text-[10px]">PHILOSOPHY</span>
+                  <span class="text-white font-semibold mt-0.5 block">DFM / DFA / MBD</span>
+                </div>
+                <div class="bg-cad-950 p-3 rounded border border-cad-line">
+                  <span class="text-cad-steel block text-[10px]">STANDARDS</span>
+                  <span class="text-white font-semibold mt-0.5 block">ASME / ANSI / AWS</span>
+                </div>
+                <div class="bg-cad-950 p-3 rounded border border-cad-line">
+                  <span class="text-cad-steel block text-[10px]">PDM / PLM</span>
+                  <span class="text-white font-semibold mt-0.5 block">Teamcenter &amp; Vault</span>
+                </div>
+                <div class="bg-cad-950 p-3 rounded border border-cad-line">
+                  <span class="text-cad-steel block text-[10px]">METHODOLOGY</span>
+                  <span class="text-white font-semibold mt-0.5 block">DMAIC / 6 Sigma</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE EXPERTISE (INTERACTIVE MATRIX) -->
+    <section id="expertise" class="py-20 bg-cad-900/40 border-b border-cad-line relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-2 font-mono text-xs text-cad-accent mb-2">
+            <span class="w-2 h-2 bg-cad-accent"></span>
+            <span>SECTION 02 // TECHNICAL SPECIALIZATION</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-display font-bold text-white">Core Engineering Capabilities</h2>
+          <p class="font-mono text-xs text-cad-steel mt-2">
+            Grouped functional competencies applied across 500+ released assemblies and multi-million dollar machinery platforms.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Group 1: Mechanical & Structural Design -->
+          <div class="cad-corners bg-cad-950 border border-cad-line rounded-lg p-6 hover:border-cad-accent transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded bg-cad-900 border border-cad-line flex items-center justify-center text-cad-accent mb-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+              </div>
+              <div class="font-mono text-[10px] text-cad-steel uppercase">CAT-A</div>
+              <h3 class="text-lg font-display font-bold text-white mt-1 mb-3">Mechanical &amp; Structural Design</h3>
+              <ul class="space-y-2 text-xs text-slate-300 font-mono">
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Structural Frame &amp; Chassis Design</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Locomotive CAB Design &amp; Integration</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Aerial Machines / Lifting Equipment</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Sheet Metal &amp; Enclosure Envelopes</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Heavy Welding Structures (AWS D1.1)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Special Purpose Machinery (SPM)</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 pt-3 border-t border-cad-line/60 font-mono text-[10px] text-cad-steel">
+              Dominant Scope: UG-NX / Creo
+            </div>
+          </div>
+
+          <!-- Group 2: Engineering & Validation -->
+          <div class="cad-corners bg-cad-950 border border-cad-line rounded-lg p-6 hover:border-cad-accent transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded bg-cad-900 border border-cad-line flex items-center justify-center text-cad-accent mb-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+              </div>
+              <div class="font-mono text-[10px] text-cad-steel uppercase">CAT-B</div>
+              <h3 class="text-lg font-display font-bold text-white mt-1 mb-3">Engineering &amp; Validation</h3>
+              <ul class="space-y-2 text-xs text-slate-300 font-mono">
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Force &amp; Static Load Calculations</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Bolt Selection &amp; Joint Verification</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Machine Stability Checks &amp; Load Charts</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Gearbox, Shaft &amp; Bearing Sizing</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Hydraulic Cylinder &amp; Line Sizing</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Foundational FEA (ANSYS Basics)</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 pt-3 border-t border-cad-line/60 font-mono text-[10px] text-cad-steel">
+              Physics &amp; Math Verification
+            </div>
+          </div>
+
+          <!-- Group 3: Manufacturing & NPD -->
+          <div class="cad-corners bg-cad-950 border border-cad-line rounded-lg p-6 hover:border-cad-accent transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded bg-cad-900 border border-cad-line flex items-center justify-center text-cad-accent mb-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke-width="2"/></svg>
+              </div>
+              <div class="font-mono text-[10px] text-cad-steel uppercase">CAT-C</div>
+              <h3 class="text-lg font-display font-bold text-white mt-1 mb-3">Manufacturing &amp; NPD</h3>
+              <ul class="space-y-2 text-xs text-slate-300 font-mono">
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>DFM &amp; DFA Principle Application</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Manufacturing Issue Resolution</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Sustaining Engineering Release</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>ECN / ECR Management &amp; Audit</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>New Product Development (3 Programs)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Root Cause Analysis &amp; DMAIC</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 pt-3 border-t border-cad-line/60 font-mono text-[10px] text-cad-steel">
+              Shop Floor &amp; Sustaining
+            </div>
+          </div>
+
+          <!-- Group 4: Engineering Systems & Data -->
+          <div class="cad-corners bg-cad-950 border border-cad-line rounded-lg p-6 hover:border-cad-accent transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded bg-cad-900 border border-cad-line flex items-center justify-center text-cad-accent mb-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+              </div>
+              <div class="font-mono text-[10px] text-cad-steel uppercase">CAT-D</div>
+              <h3 class="text-lg font-display font-bold text-white mt-1 mb-3">Engineering Systems</h3>
+              <ul class="space-y-2 text-xs text-slate-300 font-mono">
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Multi-level Engineering BOM Authoring</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Autodesk Vault PDM Workflows</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Siemens Teamcenter PLM Data Control</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Model-Based Definition (MBD)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Complex Large Assembly Hierarchy</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cad-accent">▸</span>
+                  <span>Hydraulic &amp; Electrical Conduit Routing</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 pt-3 border-t border-cad-line/60 font-mono text-[10px] text-cad-steel">
+              Data Integrity &amp; Revision Control
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL EXPERIENCE TIMELINE -->
+    <section id="experience" class="py-20 border-b border-cad-line relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-4 border-b border-cad-line gap-4">
+          <div>
+            <div class="flex items-center gap-2 font-mono text-xs text-cad-accent">
+              <span class="w-2 h-2 bg-cad-accent"></span>
+              <span>SECTION 03 // CAREER CHRONOLOGY</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mt-1">Professional Experience</h2>
+          </div>
+          <div class="font-mono text-xs text-cad-steel">
+            <span>8+ YEARS COMBINED TRACK RECORD</span>
+          </div>
+        </div>
+
+        <div class="relative space-y-12 before:absolute before:inset-0 before:left-4 sm:before:left-1/2 before:-translate-x-1/2 before:w-[2px] before:bg-cad-line">
+          
+          <!-- Experience Item 1: Terex India -->
+          <div class="relative flex flex-col sm:flex-row items-start group">
+            
+            <!-- Left side (Desktop Date & Organization) -->
+            <div class="sm:w-1/2 sm:pr-10 sm:text-right pl-12 sm:pl-0 mb-3 sm:mb-0">
+              <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-cad-900 border border-cad-accent/50 text-cad-accent font-mono text-xs font-semibold">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                JULY 2023 — PRESENT (CURRENT)
+              </div>
+              <h3 class="text-xl font-display font-bold text-white mt-2">Terex India Pvt Ltd</h3>
+              <p class="font-mono text-xs text-cad-steel">Skookum Technologies Pvt Ltd · Bengaluru, India</p>
+              <div class="mt-2 text-xs font-mono text-slate-300">
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-300">Aerial Work Platforms &amp; Lifting Equipment</span>
+              </div>
+            </div>
+
+            <!-- Central Timeline Node -->
+            <div class="absolute left-4 sm:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-cad-950 border-2 border-cad-accent flex items-center justify-center text-cad-accent z-20 group-hover:scale-110 transition-transform">
+              <div class="w-2.5 h-2.5 bg-cad-accent rounded-full"></div>
+            </div>
+
+            <!-- Right side (Card content) -->
+            <div class="sm:w-1/2 sm:pl-10 pl-12 w-full">
+              <div class="cad-corners bg-cad-900 border border-cad-line p-6 rounded-lg relative">
+                
+                <div class="flex items-center justify-between pb-3 mb-3 border-b border-cad-line">
+                  <span class="font-display font-bold text-white text-base">Design Engineer</span>
+                  <span class="font-mono text-[11px] text-cad-accent">AERIAL PLATFORMS</span>
+                </div>
+
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Lead mechanical design operations for specialized aerial machine platforms featuring over-center, non-over-center, and telescopic drive systems adhering to strict international stability and safety codes.
+                </p>
+
+                <ul class="space-y-2 text-xs text-slate-300 font-mono">
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Executed overall device concepts and working principles strictly aligned with <strong class="text-white">ANSI 92.2</strong> standards.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Delivered high-accuracy <strong class="text-white">as-built schematics</strong>, resolving complex shop-floor manufacturing and field issues.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Engineered global compliance modifications including <strong class="text-white">China metrification</strong> and Australian design standards.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Key design authority across <strong class="text-white">3 NPD programs</strong> from initial concept phase through prototype sign-off and production release.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Enhanced PDM workflows in <strong class="text-white">Autodesk Vault and PLM</strong>, reducing data retrieval latencies and versioning anomalies.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Conducted mechanical sizing: force calculations, bolt selections, structural integrity, machine stability, and load charts.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Developed hydraulic circuit diagrams, component fittings, and high-pressure hose routings.</span>
+                  </li>
+                </ul>
+
+                <div class="mt-4 pt-3 border-t border-cad-line flex flex-wrap gap-2 text-[10px] font-mono">
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-steel">ANSI 92.2</span>
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-steel">Autodesk Vault</span>
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-steel">Hydraulics</span>
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-steel">Load Charts</span>
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-steel">NPD Release</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Experience Item 2: Quest Global -->
+          <div class="relative flex flex-col sm:flex-row items-start group">
+            
+            <!-- Left side (Card content for zigzag layout) -->
+            <div class="sm:w-1/2 sm:pr-10 pl-12 sm:pl-0 w-full order-2 sm:order-1">
+              <div class="cad-corners bg-cad-900 border border-cad-line p-6 rounded-lg relative">
+                
+                <div class="flex items-center justify-between pb-3 mb-3 border-b border-cad-line">
+                  <span class="font-display font-bold text-white text-base">Design Engineer</span>
+                  <span class="font-mono text-[11px] text-cad-accent">LOCOMOTIVE SYSTEMS</span>
+                </div>
+
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Spearheaded Locomotive CAB structural and sheet-metal design programs for leading transportation OEMs, engineering large CAD assemblies with high sub-assembly density.
+                </p>
+
+                <ul class="space-y-2 text-xs text-slate-300 font-mono">
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Completed <strong class="text-white">2 major structural designs</strong> for client locomotive orders per technical client specifications.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Engineered Locomotive CAB structures and precision sheet metal enclosures for driver control units.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Constructed massive CAD top-level assemblies with sub-assembly integration including complex flexible-conduit systems.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Resolved critical ECN/ECR change requests maintaining unbroken revision traceability.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Applied electromechanical knowledge for cable connectors, socket brackets, and vibration isolation mounts.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Participated in <strong class="text-white">3 DMAIC projects</strong>, slashing rework cycle times by 90% and guiding junior team members.</span>
+                  </li>
+                </ul>
+
+                <div class="mt-4 pt-3 border-t border-cad-line flex flex-wrap gap-2 text-[10px] font-mono">
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-steel">Locomotive CAB</span>
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-steel">Sheet Metal</span>
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-steel">DMAIC (6-Sigma)</span>
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-steel">Flexible Conduit</span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Central Timeline Node -->
+            <div class="absolute left-4 sm:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-cad-950 border-2 border-cad-700 flex items-center justify-center text-cad-steel z-20 group-hover:border-cad-accent transition-colors order-1 sm:order-2">
+              <div class="w-2.5 h-2.5 bg-cad-700 rounded-full group-hover:bg-cad-accent transition-colors"></div>
+            </div>
+
+            <!-- Right side (Desktop Date & Organization) -->
+            <div class="sm:w-1/2 sm:pl-10 pl-12 sm:pl-10 mb-3 sm:mb-0 order-1 sm:order-3">
+              <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-cad-900 border border-cad-line text-slate-300 font-mono text-xs">
+                JULY 2021 — JUNE 2023
+              </div>
+              <h3 class="text-xl font-display font-bold text-white mt-2">Quest Global Pvt Ltd</h3>
+              <p class="font-mono text-xs text-cad-steel">Bengaluru, India</p>
+              <div class="mt-2 text-xs font-mono text-slate-300">
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-300">Locomotive &amp; Heavy Transportation Engineering</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Experience Item 3: Innoway Systems -->
+          <div class="relative flex flex-col sm:flex-row items-start group">
+            
+            <!-- Left side (Desktop Date & Organization) -->
+            <div class="sm:w-1/2 sm:pr-10 sm:text-right pl-12 sm:pl-0 mb-3 sm:mb-0">
+              <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-cad-900 border border-cad-line text-slate-300 font-mono text-xs">
+                JAN 2018 — MAR 2021
+              </div>
+              <h3 class="text-xl font-display font-bold text-white mt-2">Innoway Systems</h3>
+              <p class="font-mono text-xs text-cad-steel">Coimbatore, India</p>
+              <div class="mt-2 text-xs font-mono text-slate-300">
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-300">SPM Machinery &amp; Industrial Automation</span>
+              </div>
+            </div>
+
+            <!-- Central Timeline Node -->
+            <div class="absolute left-4 sm:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-cad-950 border-2 border-cad-700 flex items-center justify-center text-cad-steel z-20 group-hover:border-cad-accent transition-colors">
+              <div class="w-2.5 h-2.5 bg-cad-700 rounded-full group-hover:bg-cad-accent transition-colors"></div>
+            </div>
+
+            <!-- Right side (Card content) -->
+            <div class="sm:w-1/2 sm:pl-10 pl-12 w-full">
+              <div class="cad-corners bg-cad-900 border border-cad-line p-6 rounded-lg relative">
+                
+                <div class="flex items-center justify-between pb-3 mb-3 border-b border-cad-line">
+                  <span class="font-display font-bold text-white text-base">Design Engineer</span>
+                  <span class="font-mono text-[11px] text-cad-accent">SPM &amp; AUTOMATION</span>
+                </div>
+
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Delivered turnkey engineering for Special-Purpose Machines (SPM), material handling conveyors, industrial hydraulic presses, and heavy biomining machinery.
+                </p>
+
+                <ul class="space-y-2 text-xs text-slate-300 font-mono">
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Engineered heavy custom machinery: <strong class="text-white">Hydraulic press machines, vertical conveyors, shredding units, and biomining processing systems</strong>.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Executed rigorous design calculations: motorized gearbox torque/speed selection, shaft and rod diameter sizing, bearing load life, chain-sprocket drive geometry, and hydraulic cylinders.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Drafted high-precision technical fabrication drawings using strict <strong class="text-white">GD&amp;T (ASME Y14.5)</strong>, limits, fits, and tolerance stack-up analysis.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-cad-accent font-bold">▪</span>
+                    <span>Specified welding design, weld symbols, and inspection callouts per <strong class="text-white">AWS D1.1</strong> structural welding code.</span>
+                  </li>
+                </ul>
+
+                <div class="mt-4 pt-3 border-t border-cad-line flex flex-wrap gap-2 text-[10px] font-mono">
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-steel">Hydraulic Presses</span>
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-steel">GD&amp;T ASME Y14.5</span>
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-steel">AWS D1.1 Welding</span>
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-steel">Gearbox/Shaft Sizing</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FEATURED ENGINEERING PROJECTS -->
+    <section id="projects" class="py-20 bg-cad-900/40 border-b border-cad-line relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-4 border-b border-cad-line gap-4">
+          <div>
+            <div class="flex items-center gap-2 font-mono text-xs text-cad-accent">
+              <span class="w-2 h-2 bg-cad-accent"></span>
+              <span>SECTION 04 // DOMAIN PROJECTS</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mt-1">Featured Engineering Projects</h2>
+          </div>
+          <div class="p-2.5 rounded bg-cad-950 border border-cad-line text-[11px] font-mono text-cad-steel max-w-md">
+            🔒 <strong class="text-slate-300">NDA Protected:</strong> Work presented via non-proprietary technical design summaries and conceptual CAD schematics.
+          </div>
+        </div>
+
+        <!-- Project Cards Grid (5 Major Categories) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Project 1: Aerial Machines -->
+          <div class="cad-corners bg-cad-950 border border-cad-line rounded-lg overflow-hidden flex flex-col justify-between hover:border-cad-accent transition-all group">
+            <div>
+              <!-- Conceptual Technical Blueprint Visual Header -->
+              <div class="h-44 bg-cad-900 border-b border-cad-line p-4 relative flex flex-col justify-between overflow-hidden bg-tech-grid">
+                <div class="flex items-center justify-between font-mono text-[10px] text-cad-steel">
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-accent">PRJ-01</span>
+                  <span>STANDARDS: ANSI 92.2</span>
+                </div>
+                <!-- Stylized 2D Conceptual Schematic -->
+                <div class="my-auto flex items-center justify-center">
+                  <svg class="w-48 h-20 text-cad-accent/80 stroke-current fill-none stroke-[1.2]" viewBox="0 0 200 80">
+                    <!-- Base Chassis -->
+                    <rect x="20" y="55" width="80" height="15" rx="2" stroke-dasharray="2 2" />
+                    <circle cx="35" cy="70" r="6" />
+                    <circle cx="85" cy="70" r="6" />
+                    <!-- Turret & Boom Arm -->
+                    <circle cx="45" cy="50" r="5" />
+                    <line x1="45" y1="50" x2="110" y2="25" />
+                    <line x1="110" y1="25" x2="160" y2="15" />
+                    <!-- Basket -->
+                    <rect x="160" y="10" width="22" height="18" />
+                    <path d="M 45 50 L 80 40" stroke="#f59e0b" stroke-width="1.5" />
+                  </svg>
+                </div>
+                <div class="text-[9px] font-mono text-cad-steel text-right">FIG 1.0 // CONCEPTUAL BOOM KINEMATICS</div>
+              </div>
+
+              <div class="p-6">
+                <div class="font-mono text-[10px] text-cad-accent uppercase mb-1">AERIAL &amp; LIFTING PLATFORMS</div>
+                <h3 class="text-lg font-display font-bold text-white mb-2 group-hover:text-cad-accent transition-colors">
+                  Aerial Machines &amp; Lifting Equipment
+                </h3>
+                <p class="text-xs text-slate-300 font-mono leading-relaxed mb-4">
+                  Multi-configuration aerial access platforms encompassing over-center, non-over-center, and telescopic boom systems. Designed to ANSI 92.2 stability envelopes.
+                </p>
+                
+                <div class="space-y-1.5 text-xs text-slate-300 font-mono border-t border-cad-line/60 pt-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-cad-steel">Scope:</span>
+                    <span class="text-white">3 NPD Programs / Sustaining</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-cad-steel">Calculations:</span>
+                    <span class="text-white">Stability, Load Charts, Bolts</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-cad-steel">Hydraulics:</span>
+                    <span class="text-white">Routing &amp; Circuit Schematics</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0">
+              <div class="flex flex-wrap gap-1.5 text-[10px] font-mono">
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">ANSI 92.2</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">Load Charts</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">Vault PDM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Locomotive CAB -->
+          <div class="cad-corners bg-cad-950 border border-cad-line rounded-lg overflow-hidden flex flex-col justify-between hover:border-cad-accent transition-all group">
+            <div>
+              <!-- Conceptual Technical Blueprint Visual Header -->
+              <div class="h-44 bg-cad-900 border-b border-cad-line p-4 relative flex flex-col justify-between overflow-hidden bg-tech-grid">
+                <div class="flex items-center justify-between font-mono text-[10px] text-cad-steel">
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-accent">PRJ-02</span>
+                  <span>APPLICATION: RAILWAY TRANSPORT</span>
+                </div>
+                <!-- Stylized 2D Conceptual Schematic -->
+                <div class="my-auto flex items-center justify-center">
+                  <svg class="w-48 h-20 text-cad-accent/80 stroke-current fill-none stroke-[1.2]" viewBox="0 0 200 80">
+                    <!-- Locomotive Cabin Outline -->
+                    <path d="M 20 65 L 180 65 L 180 35 L 140 35 L 110 15 L 40 15 L 20 35 Z" />
+                    <!-- Cab Window -->
+                    <polygon points="105,20 135,35 75,35 75,20" stroke-dasharray="2 2" />
+                    <line x1="45" y1="35" x2="45" y2="65" />
+                    <line x1="150" y1="35" x2="150" y2="65" />
+                    <circle cx="50" cy="65" r="5" />
+                    <circle cx="150" cy="65" r="5" />
+                  </svg>
+                </div>
+                <div class="text-[9px] font-mono text-cad-steel text-right">FIG 2.0 // CAB ENCLOSURE &amp; STRUCTURE</div>
+              </div>
+
+              <div class="p-6">
+                <div class="font-mono text-[10px] text-cad-accent uppercase mb-1">LOCOMOTIVE &amp; HEAVY RAIL</div>
+                <h3 class="text-lg font-display font-bold text-white mb-2 group-hover:text-cad-accent transition-colors">
+                  Locomotive CAB Structural Design
+                </h3>
+                <p class="text-xs text-slate-300 font-mono leading-relaxed mb-4">
+                  Full structural design and sheet-metal envelope development for high-tonnage locomotive driver cabins per customer functional requirements.
+                </p>
+                
+                <div class="space-y-1.5 text-xs text-slate-300 font-mono border-t border-cad-line/60 pt-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-cad-steel">Orders Delivered:</span>
+                    <span class="text-white">2 Structural Client Orders</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-cad-steel">Integration:</span>
+                    <span class="text-white">Flexible Conduit &amp; Cable Routing</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-cad-steel">Quality:</span>
+                    <span class="text-white">3 DMAIC 6-Sigma Projects</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0">
+              <div class="flex flex-wrap gap-1.5 text-[10px] font-mono">
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">Sheet Metal</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">Large CAD</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">ECN/ECR</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: SPM & Automation -->
+          <div class="cad-corners bg-cad-950 border border-cad-line rounded-lg overflow-hidden flex flex-col justify-between hover:border-cad-accent transition-all group">
+            <div>
+              <!-- Conceptual Technical Blueprint Visual Header -->
+              <div class="h-44 bg-cad-900 border-b border-cad-line p-4 relative flex flex-col justify-between overflow-hidden bg-tech-grid">
+                <div class="flex items-center justify-between font-mono text-[10px] text-cad-steel">
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-accent">PRJ-03</span>
+                  <span>STANDARDS: ASME Y14.5 / AWS</span>
+                </div>
+                <!-- Stylized 2D Conceptual Schematic -->
+                <div class="my-auto flex items-center justify-center">
+                  <svg class="w-48 h-20 text-cad-accent/80 stroke-current fill-none stroke-[1.2]" viewBox="0 0 200 80">
+                    <!-- SPM Frame -->
+                    <rect x="40" y="10" width="120" height="60" rx="2" />
+                    <!-- Drive system -->
+                    <circle cx="65" cy="40" r="14" />
+                    <circle cx="135" cy="40" r="14" />
+                    <line x1="65" y1="26" x2="135" y2="26" stroke-dasharray="3 3" />
+                    <line x1="65" y1="54" x2="135" y2="54" stroke-dasharray="3 3" />
+                    <circle cx="65" cy="40" r="4" fill="currentColor" />
+                    <circle cx="135" cy="40" r="4" fill="currentColor" />
+                  </svg>
+                </div>
+                <div class="text-[9px] font-mono text-cad-steel text-right">FIG 3.0 // SPM DRIVE &amp; TRANSMISSION</div>
+              </div>
+
+              <div class="p-6">
+                <div class="font-mono text-[10px] text-cad-accent uppercase mb-1">CUSTOM AUTOMATION</div>
+                <h3 class="text-lg font-display font-bold text-white mb-2 group-hover:text-cad-accent transition-colors">
+                  Special Purpose Machines &amp; Automation
+                </h3>
+                <p class="text-xs text-slate-300 font-mono leading-relaxed mb-4">
+                  Custom-engineered automated production machinery featuring motorized gearbox drives, precision chain-sprocket transmissions, and structural welding.
+                </p>
+                
+                <div class="space-y-1.5 text-xs text-slate-300 font-mono border-t border-cad-line/60 pt-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-cad-steel">Calculations:</span>
+                    <span class="text-white">Gearbox, Shaft, Bearing, Chain</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-cad-steel">Welding:</span>
+                    <span class="text-white">AWS D1.1 Joint Callouts</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-cad-steel">GD&amp;T:</span>
+                    <span class="text-white">Limits, Fits, Stack-up Analysis</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0">
+              <div class="flex flex-wrap gap-1.5 text-[10px] font-mono">
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">Drive Sizing</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">AWS D1.1</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">GD&amp;T</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Hydraulic Presses -->
+          <div class="cad-corners bg-cad-950 border border-cad-line rounded-lg overflow-hidden flex flex-col justify-between hover:border-cad-accent transition-all group">
+            <div>
+              <!-- Conceptual Technical Blueprint Visual Header -->
+              <div class="h-44 bg-cad-900 border-b border-cad-line p-4 relative flex flex-col justify-between overflow-hidden bg-tech-grid">
+                <div class="flex items-center justify-between font-mono text-[10px] text-cad-steel">
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-accent">PRJ-04</span>
+                  <span>PRESSURE: FLUID POWER</span>
+                </div>
+                <!-- Stylized 2D Conceptual Schematic -->
+                <div class="my-auto flex items-center justify-center">
+                  <svg class="w-48 h-20 text-cad-accent/80 stroke-current fill-none stroke-[1.2]" viewBox="0 0 200 80">
+                    <!-- Hydraulic Press Frame -->
+                    <line x1="50" y1="10" x2="50" y2="70" stroke-width="2" />
+                    <line x1="150" y1="10" x2="150" y2="70" stroke-width="2" />
+                    <rect x="40" y="65" width="120" height="10" />
+                    <rect x="40" y="5" width="120" height="10" />
+                    <!-- Cylinder and Platen -->
+                    <rect x="85" y="15" width="30" height="25" />
+                    <line x1="100" y1="40" x2="100" y2="52" stroke-width="2" />
+                    <rect x="65" y="52" width="70" height="6" fill="#f59e0b" stroke="#f59e0b" />
+                  </svg>
+                </div>
+                <div class="text-[9px] font-mono text-cad-steel text-right">FIG 4.0 // HYDRAULIC PRESS COLUMN FRAME</div>
+              </div>
+
+              <div class="p-6">
+                <div class="font-mono text-[10px] text-cad-accent uppercase mb-1">HEAVY FORMING MACHINERY</div>
+                <h3 class="text-lg font-display font-bold text-white mb-2 group-hover:text-cad-accent transition-colors">
+                  Hydraulic Press &amp; Industrial Machinery
+                </h3>
+                <p class="text-xs text-slate-300 font-mono leading-relaxed mb-4">
+                  High-tonnage hydraulic press systems including column frames, bolster plates, cylinder mounts, and hydraulic circuit validation.
+                </p>
+                
+                <div class="space-y-1.5 text-xs text-slate-300 font-mono border-t border-cad-line/60 pt-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-cad-steel">Calculations:</span>
+                    <span class="text-white">Hydraulic Sizing, Cylinder Force</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-cad-steel">Structure:</span>
+                    <span class="text-white">Rigid Tie-Rod &amp; Bolster Platen</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-cad-steel">Detailing:</span>
+                    <span class="text-white">Fabrication Drawings &amp; Billet Machining</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0">
+              <div class="flex flex-wrap gap-1.5 text-[10px] font-mono">
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">Hydraulic Press</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">Cylinders</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">FEA Basics</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Material Handling -->
+          <div class="cad-corners bg-cad-950 border border-cad-line rounded-lg overflow-hidden flex flex-col justify-between hover:border-cad-accent transition-all group md:col-span-2 lg:col-span-2">
+            <div>
+              <!-- Conceptual Technical Blueprint Visual Header -->
+              <div class="h-44 bg-cad-900 border-b border-cad-line p-4 relative flex flex-col justify-between overflow-hidden bg-tech-grid">
+                <div class="flex items-center justify-between font-mono text-[10px] text-cad-steel">
+                  <span class="px-2 py-0.5 rounded bg-cad-950 border border-cad-line text-cad-accent">PRJ-05</span>
+                  <span>SYSTEM: BULK HANDLING &amp; PROCESSING</span>
+                </div>
+                <!-- Stylized 2D Conceptual Schematic -->
+                <div class="my-auto flex items-center justify-center">
+                  <svg class="w-72 h-20 text-cad-accent/80 stroke-current fill-none stroke-[1.2]" viewBox="0 0 280 80">
+                    <!-- Vertical Conveyor & Shredder -->
+                    <rect x="30" y="10" width="30" height="60" />
+                    <line x1="45" y1="10" x2="45" y2="70" stroke-dasharray="2 2" />
+                    <polygon points="40,25 50,25 45,15" fill="currentColor" />
+                    <!-- Incline chute -->
+                    <line x1="60" y1="20" x2="120" y2="40" stroke-width="2" />
+                    <!-- Shredder drum box -->
+                    <rect x="120" y="30" width="50" height="40" />
+                    <circle cx="135" cy="50" r="10" />
+                    <circle cx="155" cy="50" r="10" />
+                    <!-- Trommel biomining screen -->
+                    <polygon points="180,40 250,30 250,70 180,60" stroke-dasharray="2 2" />
+                  </svg>
+                </div>
+                <div class="text-[9px] font-mono text-cad-steel text-right">FIG 5.0 // VERTICAL CONVEYOR, SHREDDER &amp; BIOMINING INTEGRATION</div>
+              </div>
+
+              <div class="p-6">
+                <div class="font-mono text-[10px] text-cad-accent uppercase mb-1">BULK MATERIAL AUTOMATION</div>
+                <h3 class="text-lg font-display font-bold text-white mb-2 group-hover:text-cad-accent transition-colors">
+                  Conveyor, Shredding &amp; Biomining Equipment
+                </h3>
+                <p class="text-xs text-slate-300 font-mono leading-relaxed mb-4">
+                  Heavy industrial equipment engineering for waste processing and biomining operations: vertical bucket and belt conveyors, industrial shredder rotating drums, and trommel sizing machines.
+                </p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300 font-mono border-t border-cad-line/60 pt-3">
+                  <div>
+                    <span class="text-cad-steel block text-[10px]">VERTICAL CONVEYORS</span>
+                    <span class="text-white">Bucket &amp; Belt Lift Sizing</span>
+                  </div>
+                  <div>
+                    <span class="text-cad-steel block text-[10px]">SHREDDING UNITS</span>
+                    <span class="text-white">Shaft Torsion &amp; Blade Mounts</span>
+                  </div>
+                  <div>
+                    <span class="text-cad-steel block text-[10px]">BIOMINING PLANT</span>
+                    <span class="text-white">Rotary Trommel Screen Drums</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0">
+              <div class="flex flex-wrap gap-1.5 text-[10px] font-mono">
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">Material Handling</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">Shaft Calculations</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">Biomining</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 text-cad-steel border border-cad-line">Chain-Sprocket Sizing</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS & STANDARDS DASHBOARD -->
+    <section id="skills" class="py-20 border-b border-cad-line relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-2 font-mono text-xs text-cad-accent mb-2">
+            <span class="w-2 h-2 bg-cad-accent"></span>
+            <span>SECTION 05 // SYSTEM PROFICIENCY</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-display font-bold text-white">Technical Skills &amp; Standards</h2>
+          <p class="font-mono text-xs text-cad-steel mt-2">
+            Interactive inventory of CAD authoring suites, international drafting standards, and engineering toolsets.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Category 1: CAD & Data Tools -->
+          <div class="cad-corners bg-cad-900 border border-cad-line p-6 rounded-lg">
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-cad-line">
+              <span class="font-display font-bold text-white text-base">CAD &amp; Data Control</span>
+              <span class="font-mono text-[10px] px-2 py-0.5 bg-cad-950 text-cad-accent rounded border border-cad-line">CORE</span>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="bg-cad-950 p-3 rounded border border-cad-line flex items-center justify-between">
+                <div>
+                  <div class="text-white font-semibold text-xs">Siemens UG-NX</div>
+                  <div class="text-[10px] font-mono text-cad-steel">Parametric 3D &amp; Large Assembly</div>
+                </div>
+                <span class="text-cad-accent font-mono text-xs">ADVANCED</span>
+              </div>
+
+              <div class="bg-cad-950 p-3 rounded border border-cad-line flex items-center justify-between">
+                <div>
+                  <div class="text-white font-semibold text-xs">Teamcenter (PLM)</div>
+                  <div class="text-[10px] font-mono text-cad-steel">Revision Control &amp; Release Flow</div>
+                </div>
+                <span class="text-cad-accent font-mono text-xs">PLM</span>
+              </div>
+
+              <div class="bg-cad-950 p-3 rounded border border-cad-line flex items-center justify-between">
+                <div>
+                  <div class="text-white font-semibold text-xs">Autodesk Vault (PDM)</div>
+                  <div class="text-[10px] font-mono text-cad-steel">Lifecycle State &amp; Workflow Tuning</div>
+                </div>
+                <span class="text-cad-accent font-mono text-xs">PDM</span>
+              </div>
+
+              <div class="bg-cad-950 p-3 rounded border border-cad-line flex items-center justify-between">
+                <div>
+                  <div class="text-white font-semibold text-xs">SolidWorks &amp; Creo</div>
+                  <div class="text-[10px] font-mono text-cad-steel">Sheet Metal, Parts &amp; Weldments</div>
+                </div>
+                <span class="text-cad-accent font-mono text-xs">3D CAD</span>
+              </div>
+
+              <div class="bg-cad-950 p-3 rounded border border-cad-line flex items-center justify-between">
+                <div>
+                  <div class="text-white font-semibold text-xs">AutoCAD &amp; DraftSight</div>
+                  <div class="text-[10px] font-mono text-cad-steel">2D Schematics &amp; Plant Layouts</div>
+                </div>
+                <span class="text-cad-accent font-mono text-xs">2D DWG</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Design Standards & Simulation -->
+          <div class="cad-corners bg-cad-900 border border-cad-line p-6 rounded-lg">
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-cad-line">
+              <span class="font-display font-bold text-white text-base">Standards &amp; Simulation</span>
+              <span class="font-mono text-[10px] px-2 py-0.5 bg-cad-950 text-cad-accent rounded border border-cad-line">COMPLIANCE</span>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="bg-cad-950 p-3 rounded border border-cad-line flex items-center justify-between">
+                <div>
+                  <div class="text-white font-semibold text-xs">ASME Y14.5 (GD&amp;T)</div>
+                  <div class="text-[10px] font-mono text-cad-steel">Geometric Dimensioning &amp; Tolerancing</div>
+                </div>
+                <span class="text-emerald-400 font-mono text-xs">PRIMARY</span>
+              </div>
+
+              <div class="bg-cad-950 p-3 rounded border border-cad-line flex items-center justify-between">
+                <div>
+                  <div class="text-white font-semibold text-xs">ANSI 92.2</div>
+                  <div class="text-[10px] font-mono text-cad-steel">Vehicle-Mounted Elevating Work Devices</div>
+                </div>
+                <span class="text-emerald-400 font-mono text-xs">COMPLIANT</span>
+              </div>
+
+              <div class="bg-cad-950 p-3 rounded border border-cad-line flex items-center justify-between">
+                <div>
+                  <div class="text-white font-semibold text-xs">AWS D1.1</div>
+                  <div class="text-[10px] font-mono text-cad-steel">Structural Welding Code (Steel)</div>
+                </div>
+                <span class="text-emerald-400 font-mono text-xs">APPLIED</span>
+              </div>
+
+              <div class="bg-cad-950 p-3 rounded border border-cad-line flex items-center justify-between">
+                <div>
+                  <div class="text-white font-semibold text-xs">ANSYS Workbench (Basics)</div>
+                  <div class="text-[10px] font-mono text-cad-steel">Foundational Linear Static FEA</div>
+                </div>
+                <span class="text-amber-400 font-mono text-xs">FOUNDATIONAL</span>
+              </div>
+
+              <div class="bg-cad-950 p-3 rounded border border-cad-line flex items-center justify-between">
+                <div>
+                  <div class="text-white font-semibold text-xs">Australian &amp; China Standards</div>
+                  <div class="text-[10px] font-mono text-cad-steel">Metrification &amp; Regional Compliance</div>
+                </div>
+                <span class="text-cad-accent font-mono text-xs">GLOBAL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Engineering Processes & Knowledge -->
+          <div class="cad-corners bg-cad-900 border border-cad-line p-6 rounded-lg">
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-cad-line">
+              <span class="font-display font-bold text-white text-base">Engineering Processes</span>
+              <span class="font-mono text-[10px] px-2 py-0.5 bg-cad-950 text-cad-accent rounded border border-cad-line">METHODOLOGY</span>
+            </div>
+            
+            <div class="p-3 bg-cad-950 rounded border border-cad-line space-y-2 mb-3">
+              <span class="text-[10px] font-mono text-cad-steel uppercase block">Manufacturing &amp; Detailing</span>
+              <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200">DFM / DFA</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200">MBD</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200">Sheet Metal</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200">Welding (AWS)</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200">Machining</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200">Hydraulic Routing</span>
+              </div>
+            </div>
+
+            <div class="p-3 bg-cad-950 rounded border border-cad-line space-y-2">
+              <span class="text-[10px] font-mono text-cad-steel uppercase block">Analytical Calculations</span>
+              <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200">Tolerance Stack-up</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200">Limits &amp; Fits</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200">Bolt Joint Sizing</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200">Structural Force Analysis</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200">Stability Checks</span>
+                <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200">DMAIC RCA</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION & CREDENTIALS -->
+    <section id="education" class="py-20 bg-cad-900/40 border-b border-cad-line relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-4 border-b border-cad-line gap-4">
+          <div>
+            <div class="flex items-center gap-2 font-mono text-xs text-cad-accent">
+              <span class="w-2 h-2 bg-cad-accent"></span>
+              <span>SECTION 07 // ACADEMIC FOUNDATIONS</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mt-1">Education &amp; Qualifications</h2>
+          </div>
+          <div class="font-mono text-xs text-cad-steel">
+            ANNA UNIVERSITY AFFILIATED GRADUATE
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- B.E Degree -->
+          <div class="cad-corners bg-cad-950 border border-cad-line p-6 rounded-lg flex flex-col justify-between hover:border-cad-accent transition-all md:col-span-1">
+            <div>
+              <div class="w-10 h-10 rounded bg-cad-900 border border-cad-line flex items-center justify-center text-cad-accent mb-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+              </div>
+              <div class="font-mono text-[10px] text-cad-accent font-bold uppercase">DEGREE PROGRAM</div>
+              <h3 class="text-lg font-display font-bold text-white mt-1">B.E. Mechanical Engineering</h3>
+              <p class="font-mono text-xs text-slate-300 mt-2">
+                Sri Eshwar College of Engineering<br />
+                <span class="text-cad-steel">Anna University</span>
+              </p>
+            </div>
+            
+            <div class="mt-6 pt-4 border-t border-cad-line flex items-center justify-between font-mono text-xs">
+              <span class="text-cad-steel">2013 — 2017</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-800 text-emerald-400 font-semibold">FIRST CLASS</span>
+            </div>
+          </div>
+
+          <!-- HSC -->
+          <div class="cad-corners bg-cad-950 border border-cad-line p-6 rounded-lg flex flex-col justify-between hover:border-cad-accent transition-all">
+            <div>
+              <div class="w-10 h-10 rounded bg-cad-900 border border-cad-line flex items-center justify-center text-cad-accent mb-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              </div>
+              <div class="font-mono text-[10px] text-cad-steel uppercase">HIGHER SECONDARY (HSC)</div>
+              <h3 class="text-lg font-display font-bold text-white mt-1">Higher Secondary Certificate</h3>
+              <p class="font-mono text-xs text-slate-300 mt-2">
+                State Board of Higher Secondary Education<br />
+                <span class="text-cad-steel">Tamil Nadu State Board</span>
+              </p>
+            </div>
+            
+            <div class="mt-6 pt-4 border-t border-cad-line flex items-center justify-between font-mono text-xs">
+              <span class="text-cad-steel">Completed</span>
+              <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200 font-semibold">SCORE: 70%</span>
+            </div>
+          </div>
+
+          <!-- SSLC -->
+          <div class="cad-corners bg-cad-950 border border-cad-line p-6 rounded-lg flex flex-col justify-between hover:border-cad-accent transition-all">
+            <div>
+              <div class="w-10 h-10 rounded bg-cad-900 border border-cad-line flex items-center justify-center text-cad-accent mb-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <div class="font-mono text-[10px] text-cad-steel uppercase">SECONDARY (SSLC)</div>
+              <h3 class="text-lg font-display font-bold text-white mt-1">Matriculation (SSLC)</h3>
+              <p class="font-mono text-xs text-slate-300 mt-2">
+                Matriculation Examination<br />
+                <span class="text-cad-steel">Tamil Nadu State Board</span>
+              </p>
+            </div>
+            
+            <div class="mt-6 pt-4 border-t border-cad-line flex items-center justify-between font-mono text-xs">
+              <span class="text-cad-steel">Completed</span>
+              <span class="px-2 py-0.5 rounded bg-cad-900 border border-cad-line text-slate-200 font-semibold">SCORE: 85%</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT / ENGINEERING SPECIFICATION CALLOUT -->
+    <section id="contact" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="cad-corners bg-cad-900 border border-cad-line rounded-lg p-8 sm:p-12 relative overflow-hidden">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            
+            <!-- Left Info -->
+            <div class="lg:col-span-7 space-y-4">
+              <div class="inline-flex items-center gap-2 font-mono text-xs text-cad-accent">
+                <span class="w-2 h-2 bg-cad-accent"></span>
+                <span>OPEN FOR SENIOR ENGINEERING APPOINTMENTS</span>
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">
+                Let’s Build Better Engineering Solutions.
+              </h2>
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl font-normal">
+                Available for interviews for <strong class="text-white">Senior Mechanical Design Engineer, Product Development, and Sustaining Engineering</strong> positions. Open to discussions on technical challenges, CAD leadership, and high-reliability machine programs.
+              </p>
+
+              <!-- Direct Contact Details -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 font-mono text-xs">
+                
+                <div class="bg-cad-950 p-4 rounded border border-cad-line flex items-center justify-between group">
+                  <div class="overflow-hidden">
+                    <span class="text-cad-steel block text-[10px]">DIRECT EMAIL</span>
+                    <a href="mailto:erboobalanm@gmail.com" class="text-white group-hover:text-cad-accent font-semibold transition-colors truncate block">
+                      erboobalanm@gmail.com
+                    </a>
+                  </div>
+                  <button onclick="copyToClipboard('erboobalanm@gmail.com', this)" class="p-2 rounded bg-cad-900 border border-cad-line hover:border-cad-accent text-cad-steel hover:text-white transition-colors" title="Copy Email">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                  </button>
+                </div>
+
+                <div class="bg-cad-950 p-4 rounded border border-cad-line flex items-center justify-between group">
+                  <div class="overflow-hidden">
+                    <span class="text-cad-steel block text-[10px]">LINKEDIN NETWORK</span>
+                    <a href="https://www.linkedin.com/in/boobalan-murugan-10a34a250" target="_blank" rel="noopener" class="text-white group-hover:text-cad-accent font-semibold transition-colors truncate block">
+                      in/boobalan-murugan-10a34a250
+                    </a>
+                  </div>
+                  <a href="https://www.linkedin.com/in/boobalan-murugan-10a34a250" target="_blank" rel="noopener" class="p-2 rounded bg-cad-900 border border-cad-line hover:border-cad-accent text-cad-steel hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Right Actions Card -->
+            <div class="lg:col-span-5 bg-cad-950 border border-cad-line p-6 rounded-lg space-y-4">
+              <div class="font-mono text-xs text-cad-steel flex items-center justify-between pb-2 border-b border-cad-line">
+                <span>RECRUITER ACTIONS</span>
+                <span class="text-cad-accent">STEP 01 // CONNECT</span>
+              </div>
+
+              <a href="mailto:erboobalanm@gmail.com?subject=Job%20Opportunity%20-%20Senior%20Mechanical%20Design%20Engineer" class="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded bg-cad-accent hover:bg-cad-accentHover text-cad-950 font-semibold text-sm transition-all shadow-[0_0_20px_rgba(0,163,255,0.3)]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <span>Email Me Directly</span>
+              </a>
+
+              <a href="https://www.linkedin.com/in/boobalan-murugan-10a34a250" target="_blank" rel="noopener" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded bg-cad-900 hover:bg-cad-850 text-white border border-cad-line hover:border-slate-400 font-mono text-xs transition-colors">
+                <svg class="w-4 h-4 text-cad-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25a1.6 1.6 0 0 0-1.6 1.6 1.6 1.6 0 0 0 1.6 1.6 1.6 1.6 0 0 0 1.6-1.6 1.6 1.6 0 0 0-1.6-1.6Z"/></svg>
+                <span>Connect on LinkedIn</span>
+              </a>
+
+              <button onclick="window.print()" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded bg-cad-900 hover:bg-cad-850 text-slate-300 border border-cad-line hover:border-slate-400 font-mono text-xs transition-colors">
+                <svg class="w-4 h-4 text-cad-steel" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                <span>Print Clean PDF Profile</span>
+              </button>
+
+              <div class="pt-2 text-center text-[10px] font-mono text-cad-steel">
+                RESPONSE TIME: &lt; 24 BUSINESS HOURS
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ENGINEERING TITLE BLOCK FOOTER -->
+  <footer class="bg-cad-950 border-t border-cad-line text-slate-400 font-mono text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      
+      <!-- Classic CAD Drawing Title Block Table -->
+      <div class="border border-cad-line bg-cad-900 rounded-sm overflow-hidden mb-8 shadow-inner">
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 divide-x divide-y sm:divide-y-0 divide-cad-line text-[11px]">
+          
+          <div class="p-3">
+            <span class="text-cad-steel block text-[9px]">ENGINEER / AUTHOR</span>
+            <span class="text-white font-bold block">BOOBALAN M</span>
+          </div>
+
+          <div class="p-3">
+            <span class="text-cad-steel block text-[9px]">DISCIPLINE</span>
+            <span class="text-slate-200 block">MECHANICAL DESIGN</span>
+          </div>
+
+          <div class="p-3">
+            <span class="text-cad-steel block text-[9px]">DESIGN STANDARD</span>
+            <span class="text-slate-200 block">ASME Y14.5 / ANSI 92.2</span>
+          </div>
+
+          <div class="p-3">
+            <span class="text-cad-steel block text-[9px]">REVISION</span>
+            <span class="text-cad-accent font-bold block">REV 8.0 (PRODUCTION)</span>
+          </div>
+
+          <div class="p-3">
+            <span class="text-cad-steel block text-[9px]">SHEET</span>
+            <span class="text-slate-200 block">01 / 01 (FULL-SPEC)</span>
+          </div>
+
+          <div class="p-3">
+            <span class="text-cad-steel block text-[9px]">STATUS</span>
+            <span class="text-emerald-400 font-bold block">RELEASED // ACTIVE</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Credits and Navigation -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-cad-steel text-[11px]">
+        <div>
+          © <span id="currentYear">2025</span> Boobalan M. Senior Mechanical Design Engineer Portfolio.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#home" class="hover:text-cad-accent transition-colors">TOP OF DRAWING ↑</a>
+          <a href="mailto:erboobalanm@gmail.com" class="hover:text-cad-accent transition-colors">erboobalanm@gmail.com</a>
+          <a href="https://www.linkedin.com/in/boobalan-murugan-10a34a250" target="_blank" rel="noopener" class="hover:text-cad-accent transition-colors">LINKEDIN</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Toast Notification element -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-cad-900 border border-cad-accent text-white px-4 py-2.5 rounded font-mono text-xs shadow-2xl flex items-center gap-2">
+    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toastMsg">Email copied to clipboard!</span>
+  </div>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // 1. Current Year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // 2. Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // 3. Scroll Progress Indicator
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scrollProgress').style.width = scrolled + '%';
+    });
+
+    // 4. Copy to Clipboard Helper with Toast
+    function copyToClipboard(text, btn) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-20', 'opacity-0');
+        }, 2500);
+      });
+    }
+
+    // 5. Stat Counter Animation on Intersection
+    const counters = document.querySelectorAll('.stat-counter');
+    let hasAnimated = false;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+          counters.forEach(counter => {
+            const target = parseFloat(counter.getAttribute('data-target'));
+            const suffix = counter.getAttribute('data-suffix') || '';
+            const decimals = parseInt(counter.getAttribute('data-decimal')) || 0;
+            const duration = 1600; // ms
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // EaseOutQuad
+              const easeProgress = 1 - (1 - progress) * (1 - progress);
+              const currentVal = easeProgress * target;
+
+              counter.textContent = currentVal.toFixed(decimals) + suffix;
+
+              if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+              } else {
+                counter.textContent = target.toFixed(decimals) + suffix;
+              }
+            }
+
+            requestAnimationFrame(updateCounter);
+          });
+        }
+      });
+    }, { threshold: 0.25 });
+
+    const achievementsSec = document.getElementById('achievements');
+    if (achievementsSec) observer.observe(achievementsSec);
+
+    // 6. Interactive 3D CAD Mechanical Assembly Viewport with Three.js
+    (function initCADViewport() {
+      const container = document.getElementById('canvas-container');
+      const loader = document.getElementById('canvas-loading');
+      if (!container || typeof THREE === 'undefined') return;
+
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x06090e);
+
+      const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+      camera.position.set(20, 16, 25);
+      camera.lookAt(0, 2, 0);
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+
+      if (loader) loader.style.display = 'none';
+
+      // Blueprint Ground Grid
+      const gridHelper = new THREE.GridHelper(30, 30, 0x00a3ff, 0x141f32);
+      gridHelper.position.y = -4;
+      scene.add(gridHelper);
+
+      // Create Stylized Mechanical Assembly Group
+      const assemblyGroup = new THREE.Group();
+
+      // Materials
+      const wireframeMaterial = new THREE.MeshBasicMaterial({
+        color: 0x00a3ff,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.85
+      });
+
+      const solidInnerMaterial = new THREE.MeshStandardMaterial({
+        color: 0x0e1624,
+        roughness: 0.3,
+        metalness: 0.9,
+        wireframe: false
+      });
+
+      const highlightMaterial = new THREE.MeshBasicMaterial({
+        color: 0xf59e0b,
+        wireframe: true
+      });
+
+      // Part 1: Main Turret Base
+      const baseGeo = new THREE.CylinderGeometry(5, 5.5, 2, 16);
+      const baseMesh = new THREE.Mesh(baseGeo, solidInnerMaterial);
+      const baseWire = new THREE.Mesh(baseGeo, wireframeMaterial);
+      baseMesh.position.y = -3;
+      baseWire.position.y = -3;
+      assemblyGroup.add(baseMesh);
+      assemblyGroup.add(baseWire);
+
+      // Part 2: Bearing Ring Slew Assembly
+      const ringGeo = new THREE.TorusGeometry(4.8, 0.4, 8, 24);
+      const ringMesh = new THREE.Mesh(ringGeo, highlightMaterial);
+      ringMesh.rotation.x = Math.PI / 2;
+      ringMesh.position.y = -1.8;
+      assemblyGroup.add(ringMesh);
+
+      // Part 3: Main Telescopic Boom 1
+      const boom1Geo = new THREE.BoxGeometry(2.4, 14, 2.4);
+      const boom1Mesh = new THREE.Mesh(boom1Geo, solidInnerMaterial);
+      const boom1Wire = new THREE.Mesh(boom1Geo, wireframeMaterial);
+      boom1Mesh.position.set(0, 4, 0);
+      boom1Mesh.rotation.z = -Math.PI / 5;
+      boom1Wire.position.set(0, 4, 0);
+      boom1Wire.rotation.z = -Math.PI / 5;
+      assemblyGroup.add(boom1Mesh);
+      assemblyGroup.add(boom1Wire);
+
+      // Part 4: Telescopic Inner Section 2
+      const boom2Geo = new THREE.BoxGeometry(1.7, 12, 1.7);
+      const boom2Mesh = new THREE.Mesh(boom2Geo, wireframeMaterial);
+      boom2Mesh.position.set(5.5, 11, 0);
+      boom2Mesh.rotation.z = -Math.PI / 5;
+      assemblyGroup.add(boom2Mesh);
+
+      // Part 5: Hydraulic Actuator Cylinder
+      const cylGeo = new THREE.CylinderGeometry(0.7, 0.7, 9, 12);
+      const cylMesh = new THREE.Mesh(cylGeo, highlightMaterial);
+      cylMesh.position.set(-1.5, 2.5, 1.5);
+      cylMesh.rotation.z = -Math.PI / 3.2;
+      assemblyGroup.add(cylMesh);
+
+      // Part 6: Aerial Work Platform / Cage Envelope
+      const basketGeo = new THREE.BoxGeometry(4, 3, 3);
+      const basketWire = new THREE.Mesh(basketGeo, wireframeMaterial);
+      basketWire.position.set(10.5, 15.5, 0);
+      assemblyGroup.add(basketWire);
+
+      scene.add(assemblyGroup);
+
+      // Lighting for realistic industrial look
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(ambientLight);
+
+      const dirLight = new THREE.DirectionalLight(0x00a3ff, 1.2);
+      dirLight.position.set(15, 25, 15);
+      scene.add(dirLight);
+
+      const orangeLight = new THREE.PointLight(0xf59e0b, 1, 30);
+      orangeLight.position.set(-10, 5, 10);
+      scene.add(orangeLight);
+
+      // Mouse Drag Interaction Logic
+      let isDragging = false;
+      let prevMousePos = { x: 0, y: 0 };
+
+      container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        prevMousePos = { x: e.clientX, y: e.clientY };
+      });
+
+      window.addEventListener('mouseup', () => { isDragging = false; });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const deltaX = e.clientX - prevMousePos.x;
+        const deltaY = e.clientY - prevMousePos.y;
+
+        assemblyGroup.rotation.y += deltaX * 0.008;
+        assemblyGroup.rotation.x += deltaY * 0.008;
+
+        prevMousePos = { x: e.clientX, y: e.clientY };
+      });
+
+      // Touch events for mobile interaction
+      container.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+          isDragging = true;
+          prevMousePos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchend', () => { isDragging = false; });
+
+      window.addEventListener('touchmove', (e) => {
+        if (!isDragging || e.touches.length !== 1) return;
+        const deltaX = e.touches[0].clientX - prevMousePos.x;
+        const deltaY = e.touches[0].clientY - prevMousePos.y;
+
+        assemblyGroup.rotation.y += deltaX * 0.008;
+        assemblyGroup.rotation.x += deltaY * 0.008;
+
+        prevMousePos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      }, { passive: true });
+
+      // Resize handler
+      window.addEventListener('resize', () => {
+        if (!container) return;
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+      });
+
+      // Continuous Render Loop
+      function animate() {
+        requestAnimationFrame(animate);
+        if (!isDragging) {
+          assemblyGroup.rotation.y += 0.0035;
+        }
+        renderer.render(scene, camera);
+      }
+      animate();
+
+    })();
+  </script>
+
+</body>
+</html>
